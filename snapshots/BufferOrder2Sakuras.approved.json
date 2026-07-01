@@ -1,0 +1,929 @@
+{
+  "Feature": "BufferOrder2Sakuras",
+  "Cases": {
+    "Cancel/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferOrder2Sakuras/Cancel",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "IsPOIdentifier": false,
+            "OID": 0,
+            "ReasonChangeContent": null,
+            "ReasonChangeID": null
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/Cancel",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Hủy đơn đặt hàng thành công",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "CheckOutputOrder/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OutputOrders/Read2SakuraBufferOrder",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "OutputOrderID": "OUT001",
+            "OutputTypeID": 0,
+            "SupplierID": 0,
+            "SupplierName": null
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/CheckOutputOrder",
+      "Response": {
+        "objCodeStep": {
+          "Data": {
+            "OOID": 1,
+            "OutputOrderDetails": [
+              {
+                "BoxNumber": null,
+                "NumOfBox": null,
+                "PID": 10,
+                "PriceAmount": null,
+                "ProductID": "P001",
+                "ProductName": "Product 1",
+                "Quantity": null,
+                "ReferenceID": null,
+                "SalePriceBFVAT": null,
+                "SalePriceVAT": null,
+                "TaxAmount": null,
+                "VAT": null,
+                "VATPercent": null,
+                "Volume": null,
+                "Weight": null
+              }
+            ],
+            "OutputOrderID": "OUT001",
+            "TotalAmount": null,
+            "TotalQuantity": 10,
+            "TotalTaxAmount": null
+          },
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Lỗi! Không tìm thấy mã phiếu xuất",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "CheckPrice/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/Products/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/CheckPrice",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Sản phẩm P001 chưa khai báo thể tích, trọng lượng hoặc quy cách thùng",
+          "Status": "Warning",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "CheckSupplierOrder/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/Suppliers/GetSupplierUser",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": {
+            "SupplierID": "1"
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/CheckSupplierOrder?SupplierID=1",
+      "Response": {
+        "objCodeStep": {
+          "Data": [
+            {
+              "CreatedDate": "0001-01-01T00:00:00Z",
+              "CreatedUser": null,
+              "DepartmentID": null,
+              "DepartmentName": null,
+              "Email": null,
+              "FullName": "Contact 1",
+              "IsActived": false,
+              "IsPrimary": false,
+              "MaxDayPaymentLimit": null,
+              "MaxPaymentLimit": null,
+              "Phone": null,
+              "PositionName": null,
+              "SupplierID": 0,
+              "SupplierUserID": 0,
+              "UserID": 0,
+              "Username": null
+            }
+          ],
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Lỗi! Không tìm thấy nhà cung cấp",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Create/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OrderTypes/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferOrder2Sakuras/Create",
+      "Response": {
+        "__resultType": "ViewResult"
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "CreateOutputCache/pascal_case": {
+      "ForwardedCalls": [],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferOrder2Sakuras/CreateOutputCache",
+      "Response": {
+        "__exception": "NullReferenceException",
+        "__message": "Object reference not set to an instance of an object."
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 500
+    },
+    "CreateOutputCacheData/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/SystemConfigs/SOM_OrderSakura_StoreID",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OrderStatus/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/PaymentTypes/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferOrder2Sakuras/CreateOutputCacheData",
+      "Response": {
+        "__exception": "NullReferenceException",
+        "__message": "Object reference not set to an instance of an object."
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 500
+    },
+    "CreatePost/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferOrder2Sakuras/Create",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "ExpectedInputDate": "2026-07-01T00:00:00Z",
+            "MaxDayPaymentLimit": null,
+            "MerchandiseDescription": null,
+            "OID": 0,
+            "OOID": 0,
+            "OrderID": null,
+            "OrderTypeID": 1,
+            "OutputOrderID": "OUT001",
+            "OutputTypeID": 0,
+            "PaymentTypeID": null,
+            "StoreID": 1,
+            "SupplierAddress": null,
+            "SupplierEmail": null,
+            "SupplierFax": null,
+            "SupplierID": 1,
+            "SupplierName": null,
+            "SupplierPhone": null,
+            "TaxNo": null
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/Create",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Tạo đơn hàng thành công",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Edit/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferOrder2Sakuras/100",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": "100",
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/SystemConfigs/SOM_StatusIDCanReceiptDateOrder",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferOrder2Sakuras/Edit?ID=100&isACC=false",
+      "Response": {
+        "__resultType": "ViewResult"
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "EditOutputCache/pascal_case": {
+      "ForwardedCalls": [],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferOrder2Sakuras/EditOutputCache",
+      "Response": {
+        "__exception": "NullReferenceException",
+        "__message": "Object reference not set to an instance of an object."
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 500
+    },
+    "EditOutputCacheData/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/PaymentTypes/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferOrder2Sakuras/EditOutputCacheData",
+      "Response": {
+        "__exception": "NullReferenceException",
+        "__message": "Object reference not set to an instance of an object."
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 500
+    },
+    "ExportExcel/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferOrder2Sakuras/Search",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "DCIDs": [],
+            "DateFrom": "0001-01-01T00:00:00Z",
+            "DateTo": "0001-01-01T00:00:00Z",
+            "InvoiceStatus": 0,
+            "IsOnline": null,
+            "Keyword": null,
+            "Option": null,
+            "OrderStatusIDs": [],
+            "OrderTypeIDs": [
+              39
+            ],
+            "PageIndex": -1,
+            "PageSize": -1,
+            "PaymentTypeIDs": [],
+            "SupplierID": null
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/ExportExcel",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Lỗi export excel",
+          "Status": "Error",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "ExportExcelDetailGet/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferOrder2Sakuras/100",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": "100",
+          "Query": null
+        }
+      ],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferOrder2Sakuras/ExportExcelDetail?ID=100",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Lỗi ReadByID đơn hàng",
+          "Status": "Warning",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "ExportExcelDetailPost/form_urlencoded": {
+      "ForwardedCalls": [],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/ExportExcelDetail",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Lỗi DownloadTemplateDetail",
+          "Status": "Error",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "ExportExcelTemplateEditFOC/form_urlencoded": {
+      "ForwardedCalls": [],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/ExportExcelTemplateEditFOC",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": null,
+          "Status": "Error",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "GetProduct/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/Products/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/Users/0/GetProductCategories",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/GetProduct",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Sản phẩm P001 không thuộc quyền quản lý",
+          "Status": "Warning",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "GetProductCategoryAdjustPrice/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/SystemConfigs/SOM_ProductCategoryOfSafetyAdjustPriceOrder",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/ProductCategories/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/Users/0/GetProductCategories",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/GetProductCategoryAdjustPrice",
+      "Response": {
+        "objCodeStep": {
+          "Data": [],
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Lỗi load danh sách ngành hàng theo user",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "ImportExcel/form_urlencoded": {
+      "ForwardedCalls": [],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/ImportExcel",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Loại đơn hàng không đúng",
+          "Status": "Warning",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Index/pascal_case": {
+      "ForwardedCalls": [],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferOrder2Sakuras/Index",
+      "Response": {
+        "__resultType": "ViewResult"
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "IndexOutputCache/pascal_case": {
+      "ForwardedCalls": [],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferOrder2Sakuras/IndexOutputCache",
+      "Response": {
+        "__exception": "NullReferenceException",
+        "__message": "Object reference not set to an instance of an object."
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 500
+    },
+    "IndexOutputCacheData/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OrderTypes/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OrderTypes/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OrderStatus/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/SupplierOrderTypes/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/SystemConfigs/SOM_OrderStatusCanExcelDetail",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferOrder2Sakuras/IndexOutputCacheData",
+      "Response": {
+        "__exception": "NullReferenceException",
+        "__message": "Object reference not set to an instance of an object."
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 500
+    },
+    "Init/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferOrder2Sakuras/Init?storeId=1",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {},
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/Init?ID=1",
+      "Response": {
+        "objCodeStep": {
+          "Data": {
+            "OID": 100,
+            "OrderID": "BGO001"
+          },
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Thêm không thành công",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Search/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferOrder2Sakuras/Search",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "DCIDs": [],
+            "DateFrom": "0001-01-01T00:00:00Z",
+            "DateTo": "0001-01-01T00:00:00Z",
+            "InvoiceStatus": 0,
+            "IsOnline": null,
+            "Keyword": null,
+            "Option": null,
+            "OrderStatusIDs": [],
+            "OrderTypeIDs": [
+              39
+            ],
+            "PageIndex": 0,
+            "PageSize": 10,
+            "PaymentTypeIDs": [],
+            "SupplierID": null
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/Search",
+      "Response": {
+        "TotalItems": 1,
+        "lstOrders": [
+          {
+            "AccountingStatusName": null,
+            "CreatedDate": "2026-07-01T00:00:00Z",
+            "CreatedFullName": null,
+            "CreatedUser": null,
+            "DeliveryFee": null,
+            "ExpectedInputDate": "0001-01-01T00:00:00Z",
+            "InputDCPackage": 0,
+            "InputDate": "0001-01-01T00:00:00Z",
+            "InputStorePackage": 0,
+            "InvoiceStatus": null,
+            "IsOnline": false,
+            "LaborFeeBFVAT": null,
+            "MerchandiseDescription": null,
+            "OACCStatusID": null,
+            "OID": 0,
+            "OrderDate": "0001-01-01T00:00:00Z",
+            "OrderID": "BGO001",
+            "OrderMonth": null,
+            "OrderPackage": 0,
+            "OrderStatusID": 0,
+            "OrderStatusName": "Mới tạo",
+            "OrderTypeID": 0,
+            "OrderTypeName": "Test Type",
+            "PaymentTypeID": null,
+            "PaymentTypeName": null,
+            "ReasonChangeContent": null,
+            "ReasonReInitContent": null,
+            "StoreGroupName": null,
+            "StoreName": null,
+            "SupplierDescription": null,
+            "SupplierName": null,
+            "TotalAmount": 0.0,
+            "TotalAmountAF": null,
+            "TotalAmountInput": 0.0,
+            "TotalBoxOrder": 0.0,
+            "TotalDCInputBox": 0.0,
+            "TotalDCQuantityInput": 0,
+            "TotalDetailInputBox": 0.0,
+            "TotalFinalAmount": null,
+            "TotalOrderVolume": 0.0,
+            "TotalPriceAmountAF": null,
+            "TotalQuantity": 0,
+            "TotalQuantityAF": 0.0,
+            "TotalQuantityOutput": 0,
+            "TotalRecord": 0,
+            "TotalWrongAmount": null,
+            "TotalWrongQuantity": null,
+            "VATFee": null,
+            "strOrderMonth": ""
+          }
+        ],
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": null,
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "SendOrder/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferOrder2Sakuras/Send",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "ImportOrderTypeID": null,
+            "OID": 0,
+            "OrderID": "BGO001",
+            "OrderTypeID": 0,
+            "SupplierEmail": null,
+            "SupplierName": null
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/SendOrder",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Gửi đơn đặt hàng không thành công",
+          "Status": "Error",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Update/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferOrder2Sakuras/Update",
+          "Headers": null,
+          "Method": "PUT",
+          "Payload": {
+            "ExpectedInputDate": null,
+            "MerchandiseDescription": null,
+            "OID": 0,
+            "PaymentTypeID": 0
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/Update",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Cập nhật thành công",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "UpdateExpectedDate/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/Orders/UpdateExpectedInputdate",
+          "Headers": null,
+          "Method": "PUT",
+          "Payload": {
+            "ExpectedInputDate": "2026-07-02T00:00:00Z",
+            "ExpectedOutputDate": null,
+            "MerchandiseDescription": null,
+            "OID": 0,
+            "OnBoardDate": null,
+            "ReceiptDate": null
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/UpdateExpectedDate",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Cập nhật không thành công",
+          "Status": "Error",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "UpdateInputDate/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferOrder2Sakuras/UpdateInputDate",
+          "Headers": null,
+          "Method": "PUT",
+          "Payload": {
+            "ExpectedInputDate": "2026-07-02T00:00:00Z",
+            "ExpectedOutputDate": null,
+            "MerchandiseDescription": null,
+            "OID": 0,
+            "OnBoardDate": null,
+            "ReceiptDate": null
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferOrder2Sakuras/UpdateInputDate",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Cập nhật thành công",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    }
+  }
+}

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GRPQUzDcEi0=",
+  "dgSpecHash": "Odn3++5TMNA=",
   "success": true,
-  "projectFilePath": "e:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\Compat.Core.csproj",
+  "projectFilePath": "E:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\Compat.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",

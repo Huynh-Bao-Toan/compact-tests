@@ -1,0 +1,320 @@
+{
+  "Feature": "AgencyCustomers",
+  "Cases": {
+    "Create/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/AgencyCustomers/Create",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "Address": "HCM",
+            "AgencyBranchID": 1,
+            "AgencyName": "DaiLyTest",
+            "CustomerTypeID": 2,
+            "Phone": 909123456,
+            "TaxNo": "123456789"
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/AgencyCustomers/Create",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Tạo đại lý bán hàng không thành công",
+          "Status": "Warning",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Delete/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/AgencyCustomers/5",
+          "Headers": null,
+          "Method": "DELETE",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/AgencyCustomers/Delete?id=5",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Xóa đại lý bán hàng không thành công",
+          "Status": "Warning",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "ExportExcel/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/AgencyCustomers/Search",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "AgencyBranchID": 1,
+            "CustomerTypeID": 1,
+            "KeySearch": "test",
+            "PageIndex": -1,
+            "PageSize": -1
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/AgencyCustomers/ExportExcel",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Lỗi export excel.",
+          "Status": "Error",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Index/pascal_case": {
+      "ForwardedCalls": [],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/AgencyCustomers/Index",
+      "Response": {
+        "__resultType": "ViewResult"
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "IndexOutputCache/pascal_case": {
+      "ForwardedCalls": [],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/AgencyCustomers/IndexOutputCache",
+      "Response": {
+        "__exception": "NullReferenceException",
+        "__message": "Object reference not set to an instance of an object."
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 500
+    },
+    "ReadByID/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/AgencyCustomers/5",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/AgencyCustomers/ReadByID?id=5",
+      "Response": {
+        "objCodeStep": {
+          "Data": {
+            "Address": "123 Main St",
+            "AgencyBranchID": 1,
+            "AgencyBranchName": "Con cưng",
+            "AgencyID": 5,
+            "AgencyName": "Test Agency",
+            "CreatedDate": "2026-07-01T00:00:00Z",
+            "CreatedFullName": "System Admin",
+            "CreatedUser": 1,
+            "CreatedUserName": "Admin",
+            "CustomerTypeID": 2,
+            "CustomerTypeName": "Sakura",
+            "Phone": 909123456,
+            "TaxNo": "123456789",
+            "UpdatedDate": "2026-07-01T00:00:00Z",
+            "UpdatedFullName": "System Admin",
+            "UpdatedUser": 1,
+            "UpdatedUserName": "Admin"
+          },
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Lỗi load đại lý bán hàng",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Search/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/AgencyCustomers/Search",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "AgencyBranchID": 1,
+            "CustomerTypeID": 1,
+            "KeySearch": "test",
+            "PageIndex": 0,
+            "PageSize": 10
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/AgencyCustomers/Search",
+      "Response": {
+        "TotalItems": 1,
+        "objCodeStep": {
+          "Data": [
+            {
+              "Address": "123 Main St",
+              "AgencyBranchID": 1,
+              "AgencyBranchName": "Con cưng",
+              "AgencyID": 5,
+              "AgencyName": "Test Agency",
+              "CustomerTypeID": 2,
+              "CustomerTypeName": "Sakura",
+              "Phone": 909123456,
+              "TaxNo": "123456789",
+              "TotalRecord": 0,
+              "UpdatedDate": "2026-07-01T00:00:00Z",
+              "UpdatedFullName": "System Admin",
+              "UpdatedUser": 1,
+              "UpdatedUserName": "Admin"
+            }
+          ],
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Lỗi load danh sách đại lý bán hàng",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Search/number_as_string": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/AgencyCustomers/Search",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "AgencyBranchID": -1,
+            "CustomerTypeID": 1,
+            "KeySearch": "test",
+            "PageIndex": 0,
+            "PageSize": 10
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/AgencyCustomers/Search",
+      "Response": {
+        "TotalItems": 1,
+        "objCodeStep": {
+          "Data": [
+            {
+              "Address": "123 Main St",
+              "AgencyBranchID": 1,
+              "AgencyBranchName": "Con cưng",
+              "AgencyID": 5,
+              "AgencyName": "Test Agency",
+              "CustomerTypeID": 2,
+              "CustomerTypeName": "Sakura",
+              "Phone": 909123456,
+              "TaxNo": "123456789",
+              "TotalRecord": 0,
+              "UpdatedDate": "2026-07-01T00:00:00Z",
+              "UpdatedFullName": "System Admin",
+              "UpdatedUser": 1,
+              "UpdatedUserName": "Admin"
+            }
+          ],
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Lỗi load danh sách đại lý bán hàng",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Update/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/AgencyCustomers/Update",
+          "Headers": null,
+          "Method": "PUT",
+          "Payload": {
+            "Address": "HCM",
+            "AgencyBranchID": 1,
+            "AgencyID": 5,
+            "AgencyName": "DaiLyUpdate",
+            "CustomerTypeID": 2,
+            "Phone": 909123456,
+            "TaxNo": "123456789"
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/AgencyCustomers/Update",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Cập nhật đại lý bán hàng không thành công",
+          "Status": "Warning",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    }
+  }
+}

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "e:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\Compat.Core.csproj": {}
+    "E:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\Compat.Core.csproj": {}
   },
   "projects": {
-    "e:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\Compat.Core.csproj": {
+    "E:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\Compat.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "e:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\Compat.Core.csproj",
+        "projectUniqueName": "E:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\Compat.Core.csproj",
         "projectName": "Compat.Core",
-        "projectPath": "e:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\Compat.Core.csproj",
+        "projectPath": "E:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\Compat.Core.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "e:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\obj\\",
+        "outputPath": "E:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

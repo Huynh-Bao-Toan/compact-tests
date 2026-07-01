@@ -76,11 +76,19 @@ namespace Compat.Legacy
 
             var request = new FakeHttpRequest(testCase.Method, testCase.ContentType, body, query, form, headers);
             var httpContext = new FakeHttpContext(request);
+
+            try
+            {
+                var principal = (System.Security.Principal.IPrincipal)System.Runtime.Serialization.FormatterServices.GetUninitializedObject(typeof(CoC.Web.SOM.UserPrincipal));
+                httpContext.User = principal;
+            }
+            catch { }
+
             var controllerContext = new ControllerContext(httpContext, new System.Web.Routing.RouteData(), controller);
             controller.ControllerContext = controllerContext;
 
             // Resolve action + bind parameters through the real MVC binder.
-            var method = ResolveAction(controller.GetType(), actionName);
+            var method = ResolveAction(controller.GetType(), actionName, testCase.Method);
             var valueProvider = BuildValueProvider(controllerContext, testCase, query, form);
             var args = BindParameters(controllerContext, method, valueProvider);
 
@@ -237,7 +245,7 @@ namespace Compat.Legacy
             return args;
         }
 
-        private static MethodInfo ResolveAction(Type controllerType, string actionName)
+        private static MethodInfo ResolveAction(Type controllerType, string actionName, string httpMethod)
         {
             // Prefer a public instance method matching the action name; ignore overloads' verb attrs here.
             var candidates = controllerType
@@ -248,6 +256,34 @@ namespace Compat.Legacy
 
             if (candidates.Length == 0)
                 throw new InvalidOperationException($"Action '{actionName}' not found on {controllerType.Name}.");
+
+            if (candidates.Length > 1 && !string.IsNullOrEmpty(httpMethod))
+            {
+                // Disambiguate by HTTP verb attributes
+                var verbFiltered = candidates.Where(m =>
+                {
+                    bool hasGet = m.GetCustomAttributes(typeof(HttpGetAttribute), true).Any();
+                    bool hasPost = m.GetCustomAttributes(typeof(HttpPostAttribute), true).Any();
+                    bool hasPut = m.GetCustomAttributes(typeof(HttpPutAttribute), true).Any();
+                    bool hasDelete = m.GetCustomAttributes(typeof(HttpDeleteAttribute), true).Any();
+
+                    if (httpMethod.Equals("POST", StringComparison.OrdinalIgnoreCase)) return hasPost;
+                    if (httpMethod.Equals("GET", StringComparison.OrdinalIgnoreCase)) return hasGet || (!hasPost && !hasPut && !hasDelete);
+                    if (httpMethod.Equals("PUT", StringComparison.OrdinalIgnoreCase)) return hasPut;
+                    if (httpMethod.Equals("DELETE", StringComparison.OrdinalIgnoreCase)) return hasDelete;
+                    return false;
+                }).ToArray();
+
+                if (verbFiltered.Length == 1)
+                {
+                    return verbFiltered[0];
+                }
+                if (verbFiltered.Length > 0)
+                {
+                    candidates = verbFiltered;
+                }
+            }
+
             if (candidates.Length > 1)
                 throw new InvalidOperationException(
                     $"Action '{actionName}' is overloaded on {controllerType.Name}; register a disambiguating case.");

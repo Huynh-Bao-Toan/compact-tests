@@ -1,0 +1,1366 @@
+{
+  "Feature": "BufferGrandOrders",
+  "Cases": {
+    "CalculatingDistribution/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OrderTypes/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/CalculatingDistribution",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Fe truyền kho dùm",
+          "Status": "Warning",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Cancel/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferGrandOrders/Cancel",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "IsPOIdentifier": false,
+            "OID": 0,
+            "ReasonChangeContent": null,
+            "ReasonChangeID": null
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/Cancel",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Hủy đơn đặt hàng không thành công",
+          "Status": "Error",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "CheckPriceAndStock/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/PricePurchases/ReadByPIDs",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "PIDs": [
+              10
+            ]
+          },
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OrderTypes/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/IvenCenterStocks/SearchByPIDs",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "PIDs": [
+              10
+            ],
+            "StockTypeID": 1,
+            "StoreID": 1
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/CheckPriceAndStock",
+      "Response": {
+        "Price": {
+          "AdjustPrice": 0.0,
+          "BuyPrice": 100.0,
+          "BuyPriceAfter": 100.0,
+          "CategoryID": 0,
+          "CategoryName": null,
+          "CreatedDate": "0001-01-01T00:00:00Z",
+          "CreatedUser": 0,
+          "CreatedUser_FullName": null,
+          "CreatedUser_UserName": null,
+          "Description": null,
+          "IsDeleted": false,
+          "OutputTypeID": 0,
+          "OutputTypeName": null,
+          "PID": 10,
+          "PriceID": 0,
+          "PriceRegionID": 0,
+          "ProductID": "P001",
+          "ProductName": "Product 1",
+          "PromotionPrice": 0.0,
+          "ReferenceID": null,
+          "SalePrice": 0.0,
+          "SalePriceAfter": 0.0,
+          "Serial": null,
+          "UpdatedDate": "0001-01-01T00:00:00Z",
+          "UpdatedDate2": "0001-01-01T00:00:00Z",
+          "UpdatedUser": 0,
+          "UpdatedUser_FullName": null,
+          "UpdatedUser_FullName2": null,
+          "UpdatedUser_UserName": null,
+          "UpdatedUser_UserName2": null,
+          "VAT": 0,
+          "VATIn": 0,
+          "WebPrice": 0.0
+        },
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Sản phẩm P001 không đủ tồn kho",
+          "Status": "Warning",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "CheckSupplierOrder/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/Suppliers/GetSupplierUser",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": {
+            "SupplierID": "1"
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/CheckSupplierOrder?SupplierID=1",
+      "Response": {
+        "objCodeStep": {
+          "Data": [
+            {
+              "CreatedDate": "0001-01-01T00:00:00Z",
+              "CreatedUser": null,
+              "DepartmentID": null,
+              "DepartmentName": null,
+              "Email": null,
+              "FullName": "Contact 1",
+              "IsActived": false,
+              "IsPrimary": false,
+              "MaxDayPaymentLimit": null,
+              "MaxPaymentLimit": null,
+              "Phone": null,
+              "PositionName": null,
+              "SupplierID": 0,
+              "SupplierUserID": 0,
+              "UserID": 0,
+              "Username": null
+            }
+          ],
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Lỗi! Không tìm thấy nhà cung cấp",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Confirm/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OrderTypes/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferGrandOrders/Confirm",
+          "Headers": null,
+          "Method": "PUT",
+          "Payload": {
+            "InputTypeID": 65,
+            "OID": 0,
+            "OrderID": "BGO001",
+            "OrderTypeID": 1,
+            "OutputTypeID": 67,
+            "StockTypeID": 1,
+            "StoreID": 0
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/Confirm",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Kết thúc đơn đặt hàng thành công",
+          "Status": "Success",
+          "SuccessStep": ""
+        },
+        "objRes": {
+          "IsSuccess": true,
+          "OrderStatusID": 0,
+          "OrderStatusName": null
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "ConfirmFinal/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OrderTypes/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferGrandOrders/ConfirmFinal",
+          "Headers": null,
+          "Method": "PUT",
+          "Payload": {
+            "InputTypeID": 65,
+            "OID": 0,
+            "OrderID": "BGO001",
+            "OrderTypeID": 1,
+            "OutputTypeID": 67,
+            "StockTypeID": 1,
+            "StoreID": 0
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/ConfirmFinal",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Kết thúc chia hàng thành công",
+          "Status": "Success",
+          "SuccessStep": ""
+        },
+        "objRes": {
+          "IsSuccess": true,
+          "OrderStatusID": 0,
+          "OrderStatusName": null
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Create/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/ProductCategories/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/Users/0/GetProductCategories",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferGrandOrders/Create",
+      "Response": {
+        "__resultType": "ViewResult"
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "CreateOutputCache/pascal_case": {
+      "ForwardedCalls": [],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferGrandOrders/CreateOutputCache",
+      "Response": {
+        "__exception": "NullReferenceException",
+        "__message": "Object reference not set to an instance of an object."
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 500
+    },
+    "CreateOutputCacheData/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/SystemConfigs/SOM_OrderTypeID_BufferGrandOrders",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OrderTypes/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OrderStatus/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/StoreGroups/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/Stores/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/ProductCategories/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferGrandOrders/CreateOutputCacheData",
+      "Response": {
+        "__exception": "NullReferenceException",
+        "__message": "Object reference not set to an instance of an object."
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 500
+    },
+    "CreatePost/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferGrandOrders/Create",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "CategoryID": null,
+            "CategoryName": null,
+            "CurrencyExchange": null,
+            "CurrencyUnitID": 1,
+            "DurationDay": null,
+            "ExpectedInputDate": "2026-07-01T00:00:00Z",
+            "ExpectedOutputDate": null,
+            "GoodsType": null,
+            "ImportOrderTypeID": null,
+            "IsAutoSend": null,
+            "IsGrand": false,
+            "IsPOIdentifier": false,
+            "MaxDayLimit": null,
+            "MaxDayPaymentLimit": null,
+            "MaxPaymentLimit": null,
+            "MerchandiseDescription": null,
+            "OID": null,
+            "OnBoardDate": null,
+            "OrderStatusID": 1,
+            "OrderTypeID": 1,
+            "OriginOID": null,
+            "OriginOrderID": null,
+            "OutputStoreID": null,
+            "POCode": null,
+            "PODate": null,
+            "ParentStoreGroupID": null,
+            "PaymentTypeID": null,
+            "PrimaryUser": null,
+            "ReferenceOID": null,
+            "ReferenceOrderID": null,
+            "SakuraOOID": 0,
+            "SakuraOutputOrderID": null,
+            "StoreID": 1,
+            "SupplierAddress": null,
+            "SupplierEmail": null,
+            "SupplierFax": null,
+            "SupplierID": null,
+            "SupplierName": null,
+            "SupplierPhone": null,
+            "SupplierUser": null,
+            "TaxNo": null,
+            "TbDistributedData": null
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/Create",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Cập nhật không thành công",
+          "Status": "Error",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Edit/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/ProductCategories/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/Users/0/GetProductCategories",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferGrandOrders/100",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/Stores/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/StoreGroups/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/SystemConfigs/SOM_StatusIDCanReceiptDateOrder",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/SystemConfigs/SOM_StoreID_ConfirmOrderRotation",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/SystemConfigs/SOM_SendOrderRotation_Mode",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferGrandOrders/Edit?id=100",
+      "Response": {
+        "__resultType": "ViewResult"
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "EditOutputCache/pascal_case": {
+      "ForwardedCalls": [],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferGrandOrders/EditOutputCache",
+      "Response": {
+        "__exception": "NullReferenceException",
+        "__message": "Object reference not set to an instance of an object."
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 500
+    },
+    "EditOutputCacheData/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/ProductCategories/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/ReasonChanges/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferGrandOrders/EditOutputCacheData",
+      "Response": {
+        "__exception": "NullReferenceException",
+        "__message": "Object reference not set to an instance of an object."
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 500
+    },
+    "ExportExcel/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferGrandOrders/Exports",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "CategoryIDs": [],
+            "DateFrom": "0001-01-01T00:00:00Z",
+            "DateTo": "0001-01-01T00:00:00Z",
+            "Keyword": null,
+            "Option": null,
+            "OrderStatusIDs": [],
+            "OrderTypeIDs": null,
+            "PageIndex": -1,
+            "PageSize": -1,
+            "SupplierIDs": []
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/ExportExcel",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": null,
+          "Status": "Error",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "ExportExcelDetail/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/StoreGroups/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/ExportExcelDetail",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Lỗi DownloadTemplateDetail",
+          "Status": "Error",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "GetProduct/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/Products/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/Users/0/GetProductCategories",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/GetProduct",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Sản phẩm P001 không thuộc quyền quản lý",
+          "Status": "Warning",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "ImportExcelDetail/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OrderTypes/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferGrandOrders/ImportExcelBuyer",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "FilePath": null,
+            "IsInit": false,
+            "IsPOIdentifier": false,
+            "OID": 0,
+            "OrderType": 1,
+            "StockType": 1,
+            "StoreID": 0,
+            "StoreIDs": null,
+            "SupplierID": 0
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/ImportExcelDetail",
+      "Response": {
+        "OrderDetails": [
+          {
+            "AmountAF": null,
+            "AmountInput": null,
+            "BoxNumber": null,
+            "ConfirmAmount": null,
+            "ConfirmAmountBFVAT": null,
+            "ConfirmQuantity": null,
+            "CurrencyCode": null,
+            "CurrencyExchange": null,
+            "CurrencyUnitID": null,
+            "DetailInputBox": null,
+            "DetailOutputBox": null,
+            "DetailQuantityDCPick": null,
+            "FinalPriceAmountAF": 0.0,
+            "ImportDepositBoxNumber": null,
+            "InputQuantity": 0,
+            "InspectedAmount": null,
+            "InspectedQuantity": null,
+            "Length": null,
+            "NumOfBox": null,
+            "OID": 0,
+            "OrderDetailID": 0,
+            "OrderDistributeds": [
+              {
+                "BoxSupplier": null,
+                "CurrencyCode": null,
+                "CurrencyExchange": null,
+                "CurrencyUnitID": null,
+                "DistributedInputBox": null,
+                "DistributedInputBox_NumOfBox": null,
+                "DistributedInputQuantity": null,
+                "DistributedOutputBox": null,
+                "FinalPriceAmountAF": 0.0,
+                "GroupID": null,
+                "InputDateFrom": null,
+                "InputQuantity": 0,
+                "InspectedQuantity": null,
+                "Length": null,
+                "NumOfBox": null,
+                "OrderBoxNumber": 5.0,
+                "OrderDetailID": 0,
+                "OrderDistributedID": 0,
+                "OrderQuantity": null,
+                "OriginalPriceBFVAT": null,
+                "OriginalPriceVAT": null,
+                "PID": 0,
+                "POInputDateFrom": null,
+                "POInputQuantity": null,
+                "PriceAmount": null,
+                "PriceMode": null,
+                "ProductExchangePrice": null,
+                "ProductID": null,
+                "ProductName": null,
+                "ProductSet": null,
+                "ProductVolumeSupplier": null,
+                "QuantityAF": null,
+                "QuantityDCPick": null,
+                "ReferenceID": null,
+                "StoreGroupID": null,
+                "StoreGroupName": null,
+                "StoreID": 1,
+                "StoreInputQuantity": null,
+                "StoreName": "Test Store",
+                "SupplierFixQuantity": 0,
+                "TaxAmount": null,
+                "TemplateOrderBoxNumber": null,
+                "TemplateQuantity": null,
+                "TemplateSupplierQuantity": 0,
+                "TotalVolume": 0.0,
+                "TotalVolumeFO": null,
+                "TotalWeight": 0.0,
+                "VAT": 0,
+                "VATPercent": 0,
+                "Volume": null,
+                "Weight": null,
+                "Width": null,
+                "WrongQuantity": 0
+              }
+            ],
+            "OrderID": null,
+            "OriginalPriceBFVAT": null,
+            "OriginalPriceVAT": null,
+            "PID": 10,
+            "PriceAmount": null,
+            "PriceAmountAF": 0.0,
+            "PriceAmountInput": null,
+            "PriceMode": null,
+            "ProductExchangePrice": null,
+            "ProductID": "P001",
+            "ProductName": "Product 1",
+            "ProductSet": null,
+            "QuanityNeed": 0,
+            "Quantity": null,
+            "QuantityAF": 0,
+            "QuantityBuyerFixed": 0,
+            "QuantityPaidConsign": 0,
+            "ReferenceID": null,
+            "StoreAmount": null,
+            "StoreInputQuantity": null,
+            "TaxAmount": null,
+            "TaxAmountAF": null,
+            "TaxAmountInput": null,
+            "TemplateQuantity": null,
+            "TemplateSupplierQuantity": null,
+            "TotalPOInputQuantity": null,
+            "TotalStoreAmount": 0.0,
+            "TotalVolume": 0.0,
+            "TotalVolumeFO": null,
+            "TotalVolumeSakura": 0.0,
+            "TotalWeight": 0.0,
+            "VAT": 0,
+            "VATPercent": 0,
+            "Volume": null,
+            "Weight": null,
+            "Width": null,
+            "WrongQuantity": 0
+          }
+        ],
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Cập nhật sản phẩm từ excel thành công",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Index/pascal_case": {
+      "ForwardedCalls": [],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferGrandOrders/Index",
+      "Response": {
+        "__resultType": "ViewResult"
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "IndexOutputCache/pascal_case": {
+      "ForwardedCalls": [],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferGrandOrders/IndexOutputCache",
+      "Response": {
+        "__exception": "NullReferenceException",
+        "__message": "Object reference not set to an instance of an object."
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 500
+    },
+    "IndexOutputCacheData/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OrderTypes/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OrderStatus/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/SupplierOrderTypes/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/SystemConfigs/SOM_OrderStatusCanExcelDetail",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": null,
+      "RequestMethod": "GET",
+      "RequestUrl": "/BufferGrandOrders/IndexOutputCacheData",
+      "Response": {
+        "__exception": "NullReferenceException",
+        "__message": "Object reference not set to an instance of an object."
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 500
+    },
+    "Init/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferGrandOrders/Init?storeid=1",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {},
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/Init?StoreID=1",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Lỗi tạo mã đơn hàng chia buffer, vui lòng load lại trang",
+          "Status": "Success",
+          "SuccessStep": ""
+        },
+        "objOrder": {
+          "AdjustTotalAmountAF": null,
+          "CategoryID": null,
+          "CategoryName": null,
+          "ConfirmDate": null,
+          "CreatedDate": null,
+          "CreatedInputDate": null,
+          "CreatedUser": 0,
+          "CurrencyUnitID": 0,
+          "DebtAF": null,
+          "DebtInput": 0.0,
+          "DeliveryFee": null,
+          "ExpectedInputDate": null,
+          "ExpectedOutputDate": null,
+          "FOCType": null,
+          "FormID": null,
+          "FormStatusID": null,
+          "Fullname": null,
+          "GoodsType": null,
+          "ImportOrderTypeID": null,
+          "InputDCPackage": 0,
+          "InputDate": null,
+          "InputDateFrom": null,
+          "InputDateTo": "0001-01-01T00:00:00Z",
+          "InputStorePackage": 0,
+          "InspectedDate": null,
+          "InspectedUser": null,
+          "IsAuto": false,
+          "IsAutoSend": null,
+          "IsDCPicked": null,
+          "IsGrand": null,
+          "IsOnline": false,
+          "IsPOIdentifier": false,
+          "LaborFeeBFVAT": null,
+          "MaxDayPaymentLimit": 0,
+          "MaxPaymentLimit": 0.0,
+          "MerchandiseDescription": null,
+          "MultiInputStatusID": null,
+          "OACCStatusID": null,
+          "OID": 100,
+          "ObjectDiscountTypeID": null,
+          "OnBoardDate": null,
+          "OrderAdjust": null,
+          "OrderDate": null,
+          "OrderDetailProductGifts": null,
+          "OrderDetails": null,
+          "OrderID": "BGO001",
+          "OrderImportDiscountInfor": null,
+          "OrderInvoiceVATs": null,
+          "OrderMonth": null,
+          "OrderPackage2Stores": null,
+          "OrderPackageDistributeds": null,
+          "OrderReadByIDSupplierUsers": null,
+          "OrderStatusID": 0,
+          "OrderStatusName": null,
+          "OrderTypeID": 0,
+          "OrderTypeName": null,
+          "OriginOID": null,
+          "OriginOrderID": null,
+          "OutputDate": "0001-01-01T00:00:00Z",
+          "OutputOrderCreatedDate": null,
+          "OutputOrderID": null,
+          "OutputStoreID": null,
+          "POCode": null,
+          "PODate": null,
+          "ParentStoreGroupID": 0,
+          "ParentStoreGroupName": null,
+          "PaymentAF": null,
+          "PaymentDate": null,
+          "PaymentDateLeft": 0,
+          "PaymentInput": 0.0,
+          "PaymentTypeID": null,
+          "PaymentTypeName": null,
+          "PriceMode": null,
+          "RealInputDate": null,
+          "ReceiptDate": null,
+          "RefPaymentOrderID": null,
+          "ReferenceOrderID": null,
+          "SakuraOOID": null,
+          "SakuraOutputOrderID": null,
+          "StockType": 0,
+          "StockTypeName": null,
+          "StoreID": 0,
+          "StoreName": null,
+          "SupplierAddress": null,
+          "SupplierDescription": null,
+          "SupplierEmail": null,
+          "SupplierID": 0,
+          "SupplierName": null,
+          "SupplierPhone": null,
+          "TaxNo": null,
+          "TotalAmount": 0.0,
+          "TotalAmountAF": 0.0,
+          "TotalAmountInput": 0.0,
+          "TotalConfirmAmount": null,
+          "TotalConfirmAmountBFVAT": null,
+          "TotalFinalAmount": null,
+          "TotalFinalTaxAmount": null,
+          "TotalImportDepositBoxNumber": null,
+          "TotalInputBox": null,
+          "TotalInspectedAmount": null,
+          "TotalInspectedAmountBFVAT": null,
+          "TotalInspectedQuantity": null,
+          "TotalInspectedTaxAmount": null,
+          "TotalQuantityAF": 0,
+          "TotalQuantityDCPick": null,
+          "TotalQuantityInput": 0,
+          "TotalStoreAmount": 0.0,
+          "TotalStoreAmountBFVAT": 0.0,
+          "TotalStoreAmountST": 0.0,
+          "TotalStoreTaxAmount": 0.0,
+          "TotalTaxAmount": 0.0,
+          "TotalTaxAmountAF": 0.0,
+          "TotalTaxAmountInput": null,
+          "TotalWrongAmount": null,
+          "TotalWrongQuantity": null,
+          "VATFee": null,
+          "strOrderMonth": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Search/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferGrandOrders/Search",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "CategoryIDs": null,
+            "DateFrom": "0001-01-01T00:00:00Z",
+            "DateTo": "0001-01-01T00:00:00Z",
+            "Keyword": null,
+            "Option": null,
+            "OrderStatusIDs": [],
+            "OrderTypeIDs": null,
+            "PageIndex": 0,
+            "PageSize": 10,
+            "SupplierIDs": []
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/Search",
+      "Response": {
+        "TotalItems": 1,
+        "lstOrders": [
+          {
+            "CategoryID": 0,
+            "CategoryName": null,
+            "CreatedDate": "2026-07-01T00:00:00Z",
+            "CreatedFullName": "System Admin",
+            "ExpectedInputDate": "2026-07-01T00:00:00Z",
+            "InputDateFrom": null,
+            "MerchandiseDescription": "Test description",
+            "OID": 0,
+            "OrderID": "BGO001",
+            "OrderStatusID": 0,
+            "OrderStatusName": "Mới tạo",
+            "OrderTypeID": null,
+            "OrderTypeName": "Test Type",
+            "OutputOrderID": null,
+            "ReasonChangeContent": "None",
+            "ReasonReInitContent": "None",
+            "StoreGroupName": "Group 23",
+            "StoreName": "DC Test",
+            "SupplierName": null,
+            "TotalBoxOrder": 5.0,
+            "TotalConfirmOrderBox": 5.0,
+            "TotalConfirmOrderQuantity": 50.0,
+            "TotalOrderVolume": 10.0,
+            "TotalQuantityAF": null,
+            "TotalQuantityDCPick": null,
+            "TotalRecord": 0
+          }
+        ],
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Lỗi load danh sách đơn hàng",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "SearchStoreGroup/pascal_case": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/StoreGroups/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/SearchStoreGroup?ParentStoreGroupID=0",
+      "Response": {
+        "Lst": [],
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Lỗi load danh sách siêu thị theo ParentStoreGroupID",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "SendOrder/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferGrandOrders/Send",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "ImportOrderTypeID": null,
+            "OID": 0,
+            "OrderID": "BGO001",
+            "OrderTypeID": 0,
+            "SupplierEmail": null,
+            "SupplierName": null
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/SendOrder",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Gửi đơn đặt hàng không thành công",
+          "Status": "Error",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "Update/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/BufferGrandOrders/Update",
+          "Headers": null,
+          "Method": "PUT",
+          "Payload": {
+            "ExpectedInputDate": null,
+            "ExpectedOutputDate": null,
+            "ImportOrderTypeID": null,
+            "InputDate": null,
+            "IsAutoSend": null,
+            "IsSupplier": false,
+            "MerchandiseDescription": null,
+            "OID": 0,
+            "ObjectDiscountTypeID": null,
+            "OnBoardDate": null,
+            "OrderTypeID": 1,
+            "OutputStoreID": null,
+            "POCode": null,
+            "PODate": null,
+            "PaymentTypeID": null,
+            "PriceMode": null,
+            "StoreID": 0,
+            "SupplierDescription": null,
+            "TbDetailData": null,
+            "TbDistributedData": null,
+            "TotalAmount": null,
+            "TotalQuantity": null,
+            "TotalRequestBox": null,
+            "TotalTaxAmount": null,
+            "UpdatedUser": 0
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/Update",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Cập nhật thành công",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "UpdateExpectedDate/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/Orders/UpdateExpectedInputdate",
+          "Headers": null,
+          "Method": "PUT",
+          "Payload": {
+            "ExpectedInputDate": "2026-07-02T00:00:00Z",
+            "ExpectedOutputDate": null,
+            "MerchandiseDescription": null,
+            "OID": 0,
+            "OnBoardDate": null,
+            "ReceiptDate": null
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/UpdateExpectedDate",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Cập nhật thành công",
+          "Status": "Success",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    },
+    "ValidNumberInStock/form_urlencoded": {
+      "ForwardedCalls": [
+        {
+          "CacheKey": null,
+          "Endpoint": "api/OrderTypes/",
+          "Headers": null,
+          "Method": "GET",
+          "Payload": null,
+          "Query": null
+        },
+        {
+          "CacheKey": null,
+          "Endpoint": "api/IvenCenterStocks/SearchByPIDs",
+          "Headers": null,
+          "Method": "POST",
+          "Payload": {
+            "PIDs": [
+              10
+            ],
+            "StockTypeID": 1,
+            "StoreID": 1
+          },
+          "Query": null
+        }
+      ],
+      "RequestContentType": "application/x-www-form-urlencoded",
+      "RequestMethod": "POST",
+      "RequestUrl": "/BufferGrandOrders/ValidNumberInStock",
+      "Response": {
+        "objCodeStep": {
+          "Data": null,
+          "DataSend": null,
+          "ErrorMessage": "",
+          "ErrorStep": "Lỗi API",
+          "Message": "Sản phẩm P001 không đủ tồn kho",
+          "Status": "Warning",
+          "SuccessStep": ""
+        }
+      },
+      "ResponseContentType": "application/json",
+      "ResponseRaw": null,
+      "StatusCode": 200
+    }
+  }
+}

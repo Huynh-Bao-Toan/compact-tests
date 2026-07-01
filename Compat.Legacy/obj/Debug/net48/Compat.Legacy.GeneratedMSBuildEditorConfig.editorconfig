@@ -1,6 +1,6 @@
 is_global = true
 build_property.RootNamespace = Compat.Legacy
-build_property.ProjectDir = e:\projects\coc.web.som\compat-tests\Compat.Legacy\
+build_property.ProjectDir = E:\projects\coc.web.som\compat-tests\Compat.Legacy\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.CsWinRTUseWindowsUIXamlProjections = false

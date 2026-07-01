@@ -44,6 +44,9 @@
 	  <Reference Include="CoC.Web.SOM">
 		  <HintPath>..\..\CoC.Web.SOM\bin\CoC.Web.SOM.dll</HintPath>
 	  </Reference>
+	  <Reference Include="Core.DTO">
+		  <HintPath>..\..\CoC.Web.SOM\bin\Core.DTO.dll</HintPath>
+	  </Reference>
   </ItemGroup>
 
   <ItemGroup>
