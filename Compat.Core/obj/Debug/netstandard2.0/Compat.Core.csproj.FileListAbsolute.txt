@@ -1,0 +1,11 @@
+E:\projects\coc.web.som\compat-tests\Compat.Core\bin\Debug\netstandard2.0\Compat.Core.deps.json
+E:\projects\coc.web.som\compat-tests\Compat.Core\bin\Debug\netstandard2.0\Compat.Core.dll
+E:\projects\coc.web.som\compat-tests\Compat.Core\bin\Debug\netstandard2.0\Compat.Core.pdb
+E:\projects\coc.web.som\compat-tests\Compat.Core\obj\Debug\netstandard2.0\Compat.Core.csproj.AssemblyReference.cache
+E:\projects\coc.web.som\compat-tests\Compat.Core\obj\Debug\netstandard2.0\Compat.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\projects\coc.web.som\compat-tests\Compat.Core\obj\Debug\netstandard2.0\Compat.Core.AssemblyInfoInputs.cache
+E:\projects\coc.web.som\compat-tests\Compat.Core\obj\Debug\netstandard2.0\Compat.Core.AssemblyInfo.cs
+E:\projects\coc.web.som\compat-tests\Compat.Core\obj\Debug\netstandard2.0\Compat.Core.csproj.CoreCompileInputs.cache
+E:\projects\coc.web.som\compat-tests\Compat.Core\obj\Debug\netstandard2.0\Compat.Core.sourcelink.json
+E:\projects\coc.web.som\compat-tests\Compat.Core\obj\Debug\netstandard2.0\Compat.Core.dll
+E:\projects\coc.web.som\compat-tests\Compat.Core\obj\Debug\netstandard2.0\Compat.Core.pdb

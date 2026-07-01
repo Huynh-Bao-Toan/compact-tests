@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Compat.Legacy — generates the GOLDEN MASTER snapshots from the .NET Framework 4.8 app.
+    Targets net48 and references the legacy web project so the REAL MVC5 model binder runs.
+
+    PREREQUISITES to run (see compat-tests/README.md):
+      * Build the legacy CoC.Web.SOM project first so all referenced DLLs (Core.MVC, etc.) resolve.
+      * Provide configuration for AppConfig.Instance (copy the app's appSettings into App.config),
+        otherwise static ApiEndPoint initialization may fail.
+
+    COPYING THIS TEMPLATE TO ANOTHER PROJECT: the <Reference Include="CoC.Web.SOM"> below (and its
+    HintPath) is THIS project's legacy web app DLL. Repoint it at your own legacy app's built DLL,
+    and rewrite RecordingApiHelper.cs / AppConfigFixture.cs against your own project's forwarding
+    interface and AppConfig-equivalent singleton (see the banner comments in those two files).
+  -->
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <IsPackable>false</IsPackable>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageReference Include="xunit" Version="2.8.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <!-- MVC5 binding pipeline used by LegacyCompatibilityHost (host-less model binding). -->
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Framework assemblies for HttpContextBase / HttpUtility used by the fakes. -->
+    <Reference Include="System.Web" />
+    <!-- Required for ScriptIgnoreAttribute in SafeSnapshotSerializer (mirrors MVC5 JavaScriptSerializer behavior). -->
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Compat.Core\Compat.Core.csproj" />
+	  <Reference Include="CoC.Web.SOM">
+		  <HintPath>..\..\CoC.Web.SOM\bin\CoC.Web.SOM.dll</HintPath>
+	  </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Sample-only, not compiled: rename to <Feature>Cases.cs (drop .template) to activate it. -->
+    <Compile Remove="Cases\**\*.template.cs" />
+    <None Include="Cases\**\*.template.cs" />
+  </ItemGroup>
+
+</Project>

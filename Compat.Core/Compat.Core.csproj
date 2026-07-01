@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Compat.Core — shared, host-agnostic compatibility-testing framework.
+    Targets netstandard2.0 so it can be referenced by BOTH:
+      * the legacy net48 snapshot generator (Compat.Legacy)
+      * the migrated net8.0 verifier (Compat.Migrated)
+    Uses Newtonsoft.Json (already present in the legacy app) for deterministic
+    JToken-based snapshot serialization and diffing on both runtimes.
+  -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <RootNamespace>Compat.Core</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>
