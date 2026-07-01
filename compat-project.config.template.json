@@ -1,0 +1,34 @@
+{
+  "_description": "Template for compat-project.config.json. Copy this file to compat-tests/compat-project.config.json in your target repo (NOT inside a rules/ or prompts/ folder) and replace every <PLACEHOLDER> with real values from your project. See rules/project-discovery.md for how to fill this in. Do not commit real values back into this template file or into compat-project.config.example.json.",
+
+  "legacyProjectName": "<LEGACY_PROJECT_NAME>",
+  "legacyProjectPath": "<RELATIVE_PATH_TO_LEGACY_PROJECT>",
+  "migratedProjectName": "<MIGRATED_PROJECT_NAME>",
+  "migratedProjectPath": "<RELATIVE_PATH_TO_MIGRATED_PROJECT>",
+
+  "controllerRoot": "<RELATIVE_PATH_TO_CONTROLLERS>",
+  "scriptRoot": "<RELATIVE_PATH_TO_FRONTEND_JS>",
+
+  "caseRoot": "Compat.Legacy/Cases",
+  "snapshotRoot": "snapshots",
+  "defaultSnapshotGrouping": "controller",
+  "featureNaming": "controller_without_suffix",
+
+  "forwardingSeam": {
+    "interfaceName": "<FORWARDING_INTERFACE_NAME>",
+    "implementationName": "<FORWARDING_IMPLEMENTATION_NAME>",
+    "knownMethods": [
+      "GetMethod",
+      "PostMethod",
+      "PutMethod",
+      "DeleteMethod"
+    ]
+  },
+
+  "responseWrapper": {
+    "commonRootProperty": "<COMMON_RESPONSE_ROOT_PROPERTY_OR_EMPTY>",
+    "statusProperty": "<STATUS_PROPERTY_OR_EMPTY>",
+    "messageProperty": "<MESSAGE_PROPERTY_OR_EMPTY>",
+    "dataProperty": "<DATA_PROPERTY_OR_EMPTY>"
+  }
+}

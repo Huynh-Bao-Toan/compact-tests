@@ -3,6 +3,11 @@
 This folder is intentionally empty of real cases in the reusable template. Each project that adopts
 this framework adds its own feature cases here.
 
+If you're an agent generating cases from a controller + its frontend JS, use the
+[Compatibility Scenario Authoring Kit](../../prompts/generate-feature-scenarios.prompt.md) instead of
+following this file alone - it sequences discovery, mapping, authoring, and coverage reporting
+(see `../../rules/`).
+
 ## Convention
 
 * One controller/module = one cases file: `Cases/<Feature>Cases.cs`.

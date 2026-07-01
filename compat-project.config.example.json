@@ -1,0 +1,34 @@
+{
+  "_description": "ILLUSTRATIVE EXAMPLE ONLY. 'Contoso' is a fictional project (a standard placeholder name), not any real project. This shows the SHAPE of a filled-in config, not real values. Copy compat-project.config.template.json (not this file) as your actual starting point.",
+
+  "legacyProjectName": "Contoso.Web.Legacy",
+  "legacyProjectPath": "../Contoso.Web.Legacy",
+  "migratedProjectName": "Contoso.Web.Core",
+  "migratedProjectPath": "../Contoso.Web.Core",
+
+  "controllerRoot": "../Contoso.Web.Legacy/Controllers",
+  "scriptRoot": "../Contoso.Web.Legacy/Scripts/app",
+
+  "caseRoot": "Compat.Legacy/Cases",
+  "snapshotRoot": "snapshots",
+  "defaultSnapshotGrouping": "controller",
+  "featureNaming": "controller_without_suffix",
+
+  "forwardingSeam": {
+    "interfaceName": "IApiHelper",
+    "implementationName": "ApiHelper",
+    "knownMethods": [
+      "GetMethod",
+      "PostMethod",
+      "PutMethod",
+      "DeleteMethod"
+    ]
+  },
+
+  "responseWrapper": {
+    "commonRootProperty": "result",
+    "statusProperty": "status",
+    "messageProperty": "message",
+    "dataProperty": "data"
+  }
+}

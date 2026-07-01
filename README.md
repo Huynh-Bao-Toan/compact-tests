@@ -52,7 +52,8 @@ compat-tests/
 
 1. Copy the whole `compat-tests/` folder into the target repo.
 2. In `Compat.Legacy/Compat.Legacy.csproj`, repoint `<Reference Include="..."><HintPath>` at the
-   target's own legacy web app DLL (currently points at `CoC.Web.SOM.dll`).
+   target's own legacy web app DLL (the bundled state points at this repo's own legacy web app DLL -
+   treat that as a worked example, not a value to keep).
 3. Rewrite the two project-specific adapter files against the target app's own types (each has a
    banner comment explaining exactly what to change):
    - `Compat.Legacy/RecordingApiHelper.cs` - implements the target's own forwarding-seam interface
@@ -64,7 +65,68 @@ compat-tests/
 4. Everything else (`Compat.Core`, `LegacyCompatibilityHost.cs`, `LegacyFakes.cs`,
    `SafeSnapshotSerializer.cs`, `MigratedCompatibilityHost.cs`) is generic MVC5/ASP.NET Core plumbing
    and needs no changes.
-5. Add your first feature cases file - see `Compat.Legacy/Cases/README.md`.
+5. Add your first feature cases file - see `Compat.Legacy/Cases/README.md`, or use the
+   Compatibility Scenario Authoring Kit below to generate it from your controller + frontend JS.
+
+## Compatibility Scenario Authoring Kit
+
+A standardized rule kit so an agent (or a human) can generate accurate compatibility cases
+consistently when given only a controller file, its frontend JS, and this target repo - without
+guessing project-specific facts and without leaking any project's real name/paths back into the
+reusable template.
+
+| Artifact | Purpose |
+|---|---|
+| `compat-project.config.template.json` | Placeholder-only schema for a local, per-repo config. Copy to `compat-project.config.json` and fill in. |
+| `compat-project.config.example.json` | A fully-filled, fictional ("Contoso") example showing the shape of a real config - not real values. |
+| `rules/project-discovery.md` | How to find the legacy/migrated projects, controllers, frontend JS, and forwarding seam in an unfamiliar target repo. |
+| `rules/controller-js-mapping.md` | How to map AngularJS/JS call sites to MVC actions and extract real content-type/payload evidence. |
+| `rules/scenario-authoring.md` | How evidence becomes `CompatibilityCase`s: no invented scenarios, synthetic variants must be labeled, verify what reaches the forwarding seam. |
+| `rules/naming-conventions.md` | Feature/case-file/snapshot-file/case-key/scenario-key naming, and the global-vs-feature-specific scenario decision. |
+| `rules/coverage-reporting.md` | The required shape for reporting actions found/covered/skipped, scenarios generated vs. recommended, ambiguities, and confidence. |
+| `prompts/generate-feature-scenarios.prompt.md` | The master prompt tying all of the above together for a single feature/module generation pass. |
+
+### How to configure it for a new project
+
+1. Copy `compat-project.config.template.json` to `compat-project.config.json` in this folder.
+2. Follow `rules/project-discovery.md` to fill in every field with real, evidence-based values.
+3. Never write real project names/paths into `compat-project.config.template.json`,
+   `compat-project.config.example.json`, or anything under `rules/`/`prompts/` - those are the shared,
+   reusable-template files. Real values live only in `compat-project.config.json` and in the
+   `Cases/<Feature>Cases.cs` files you add.
+
+### How agents should use it
+
+Follow `prompts/generate-feature-scenarios.prompt.md` when asked to generate cases for a
+feature/module. It sequences the rule files above into required steps and mandates a coverage report
+at the end - it will refuse (and tell you so) rather than invent cases when it lacks JS/controller
+evidence.
+
+### How humans should review generated scenarios
+
+* Check the coverage report's "confidence level" and "unresolved ambiguities" first - Low confidence
+  or open ambiguities mean the cases need a closer read before merging.
+* Any case commented `// SYNTHETIC (no current JS evidence): ...` (see `rules/scenario-authoring.md`
+  rule 4) should get explicit sign-off - it's testing a shape the frontend doesn't currently send.
+* Review the generated `snapshots/<Feature>.approved.json` diff the same way you'd review any other
+  generated-but-consequential artifact: read what changed, don't just accept because it's generated.
+
+### Commands
+
+```powershell
+# Generate legacy snapshots (source of truth)
+dotnet test compat-tests\Compat.Legacy --no-restore
+
+# Verify migrated snapshots (once Compat.Migrated is unblocked)
+dotnet test compat-tests\Compat.Migrated --no-restore
+```
+
+### Warning
+
+Project-specific names, paths, and assembly references must live in `compat-project.config.json` and
+in your own `Cases/<Feature>Cases.cs` files - never in `Compat.Core`, `rules/`, `prompts/`, or the two
+`compat-project.config.*.json` template/example files. Those are what makes this folder copyable into
+the next migration project without a find-and-replace pass.
 
 ## Where snapshots are stored
 
