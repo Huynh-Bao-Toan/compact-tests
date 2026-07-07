@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2H8P4dS6I68=",
+  "dgSpecHash": "uKVeSucTM3c=",
   "success": true,
-  "projectFilePath": "e:\\projects\\coc.web.som\\compat-tests\\Compat.Migrated\\Compat.Migrated.csproj",
+  "projectFilePath": "E:\\projects\\coc.web.som\\compat-tests\\Compat.Migrated\\Compat.Migrated.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.codecoverage\\17.10.0\\microsoft.codecoverage.17.10.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.net.test.sdk\\17.10.0\\microsoft.net.test.sdk.17.10.0.nupkg.sha512",

@@ -903,11 +903,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "e:\\projects\\coc.web.som\\compat-tests\\Compat.Migrated\\Compat.Migrated.csproj",
+      "projectUniqueName": "E:\\projects\\coc.web.som\\compat-tests\\Compat.Migrated\\Compat.Migrated.csproj",
       "projectName": "Compat.Migrated",
-      "projectPath": "e:\\projects\\coc.web.som\\compat-tests\\Compat.Migrated\\Compat.Migrated.csproj",
+      "projectPath": "E:\\projects\\coc.web.som\\compat-tests\\Compat.Migrated\\Compat.Migrated.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "e:\\projects\\coc.web.som\\compat-tests\\Compat.Migrated\\obj\\",
+      "outputPath": "E:\\projects\\coc.web.som\\compat-tests\\Compat.Migrated\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -930,8 +930,8 @@
           "framework": "net8.0",
           "targetAlias": "net8.0",
           "projectReferences": {
-            "e:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\Compat.Core.csproj": {
-              "projectPath": "e:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\Compat.Core.csproj"
+            "E:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\Compat.Core.csproj": {
+              "projectPath": "E:\\projects\\coc.web.som\\compat-tests\\Compat.Core\\Compat.Core.csproj"
             }
           }
         }
